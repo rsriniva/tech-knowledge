@@ -1,1 +1,3 @@
-Welcome to the tech-knowledge wiki!
+Welcome to the Tech Knowledge Wiki
+
+include::file[]

@@ -1,0 +1,158 @@
+Centos
+
+- Download image : 
+- Open it in Virtualbox
+- Change memory to 4096 Mb
+- Change network to NAT and add port forwarding SSH
+
+http://stackoverflow.com/questions/5906441/how-to-ssh-to-a-virtualbox-ubuntu-guest-externally-through-a-windows-host
+
+VBoxManage modifyvm myserver --natpf1 "ssh,tcp,,3022,,22"
+VBoxManage modifyvm CentOS-6.5-root-revers --natpf1 "ssh,tcp,,3022,,22"
+VBoxManage modifyvm CentOS-6.5-root-revers --natpf1 "http,tcp,,8080,,80"
+
+where myserver = CentOS-6.5-root-revers
+
+- Start Centos 
+login : root
+password : reverse
+
+Connect it remotely
+
+ssh -p 3022 root@127.0.0.1
+
+Shared Folder
+
+http://toolkt.com/site/virtualbox-shared-folders-with-centos-server-guest/
+
+Select Devices -> Install Guest Additions, this will insert an iso image into the CDROM
+
+
+sudo mkdir /media/cdrom
+sudo mount /dev/cdrom /media/cdrom
+mount: block device /dev/sr0 is write-protected, mounting read-only
+Now if you do “ls” on /media/cdrom, you will see the following contents:
+Run file “VBoxLinuxAdditions.run” to install the addition:
+
+Fails → 
+
+uname -r
+yum install kernel-devel-2.6.32-431.el6.i686
+yum groupinstall "Development Tools"
+
+[root@localhost cdrom]# ./VBoxLinuxAdditions.run
+Verifying archive integrity... All good.
+Uncompressing VirtualBox 4.3.6 Guest Additions for Linux............
+VirtualBox Guest Additions installer
+Removing installed version 4.3.6 of VirtualBox Guest Additions...
+Copying additional installer modules ...
+Installing additional modules ...
+Removing existing VirtualBox non-DKMS kernel modules       [  OK  ]
+Building the VirtualBox Guest Additions kernel modules
+Building the main Guest Additions module
+
+[root@localhost cdrom]# ll /media/sf_hyla/
+total 12
+drwxrwx---. 1 root vboxsf   170 Jan 29 11:59 MyBlankProject
+drwxrwx---. 1 root vboxsf   340 Jan  9 12:01 MyBookProject
+drwxrwx---. 1 root vboxsf   238 Jan  9 12:05 MyDeckSlideShow
+drwxrwx---. 1 root vboxsf   340 Jan 29 15:20 MyEmailProject
+drwxrwx---. 1 root vboxsf   340 Jan 29 14:37 MyPdfProject
+drwxrwx---. 1 root vboxsf   238 Jan 10 10:57 MyRevealSlideShow
+drwxrwx---. 1 root vboxsf   306 Jan  9 12:44 MyTocProject
+drwxrwx---. 1 root vboxsf   272 Jan  9 12:01 MyTrainingExercisesProject
+drwxrwx---. 1 root vboxsf   272 Jan 29 11:59 MyTrainingProject
+-rwxrwx---. 1 root vboxsf 10710 Dec 10 17:17 camel.adoc
+drwxrwx---. 1 root vboxsf   306 Dec 10 18:48 gpe-camel-training
+drwxrwx---. 1 root vboxsf   272 Jan  6 16:01 test
+
+
+mkdir /home/shared_folder
+reboot
+ln -s /media/sf_hyla/ /home/shared_folder/
+reboot
+
+# Change Firewall config to allow to connect to the VM using port number 8181
+
+iptables -I INPUT 2 -m state --state NEW -m tcp -p tcp --dport 8181 -j ACCEPT
+service iptables save
+service iptables restart
+
+
+YUM Packages installed
+
+yum install zip
+yum install git
+yum install unzip
+
+
+Install rbenv on Centos
+
+https://gist.github.com/jpfuentes2/2002954
+
+https://gist.github.com/jpfuentes2/2002954#file-rbenv-install-system-wide-sh
+
+   73  echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.bash_profile
+   74  echo 'eval "$(rbenv init -)"' >> ~/.bash_profile
+
+rbenv install 1.9.3-p484
+rbenv global 1.9.3-p484
+
+gem install bundler
+
+Clone and build Hyla
+
+Clone Hyla project
+
+mkdir /home/repos/
+git clone https://github.com/cmoulliard/hyla.git
+gem build hyla.gemspec
+gem install hyla-1.0.2.pre.gem
+
+Install Oracle JDK 7 on Centos
+
+http://d.stavrovski.net/blog/post/how-to-install-and-setup-oracle-java-jdk-in-centos-6
+
+wget --no-cookies --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com" "http://download.oracle.com/otn-pub/java/jdk/7u51-b13/jdk-7u51-linux-i586.rpm" -O /opt/jdk-7u51-linux-i586.rpm --no-check-certificate
+
+alternatives --install /usr/bin/java java /usr/java/jdk1.7.0_51/jre/bin/java 20000
+alternatives --install /usr/bin/jar jar /usr/java/jdk1.7.0_51/bin/jar 20000
+alternatives --install /usr/bin/javac javac /usr/java/jdk1.7.0_51/bin/javac 20000
+alternatives --install /usr/bin/javaws javaws /usr/java/jdk1.7.0_51/jre/bin/javaws 20000
+alternatives --set java /usr/java/jdk1.7.0_51/jre/bin/java
+alternatives --set javaws /usr/java/jdk1.7.0_51/jre/bin/javaws
+alternatives --set javac /usr/java/jdk1.7.0_51/bin/javac
+alternatives --set jar /usr/java/jdk1.7.0_51/bin/jar
+
+
+Install JBoss Fuse & AMQ
+
+wget -O ./jboss-fuse-full-6.1.0-328.zip https://repository.jboss.org/nexus/content/repositories/fs-beta/org/jboss/fuse/jboss-fuse-full/6.1.0.redhat-328/jboss-fuse-full-6.1.0.redhat-328.zip
+
+wget -O ./jboss-a-mq-6.1.0.redhat-328.zip https://repository.jboss.org/nexus/content/repositories/fs-beta/org/jboss/amq/jboss-a-mq/6.1.0.redhat-328/jboss-a-mq-6.1.0.redhat-328.zip
+
+
+
+Install maven 3.0.5
+
+The first thing we need to do is to download the Maven tar file and untar it to a shared location on the workstation
+wget http://mirrors.gigenet.com/apache/maven/maven-3/3.0.5/binaries/apache-maven-3.0.5-bin.tar.gz
+su -c "tar -zxvf apache-maven-3.0.5-bin.tar.gz -C /opt/" 
+
+Setup the Maven Environment Variables in shared profile. The next step is to setup the Maven environment variables in a shared profile so all users on the system will get them import at login time.
+su -c "vi /etc/profile.d/maven.sh"
+
+# Add the following lines to maven.sh
+export M2_HOME=/opt/apache-maven-3.0.5
+export M2=$M2_HOME/bin
+PATH=$M2:$PATH
+Install Ant
+http://xmodulo.com/2013/03/how-to-install-apache-ant-on-centos.html
+
+Then go ahead and install Apache Ant, using its binary distribution from the official Apache web site.
+wget -O /home/software/apache-ant-1.9.3-bin.tar.gz http://www.us.apache.org/dist/ant/binaries/apache-ant-1.9.3-bin.tar.gz
+cd /home/software/
+sudo tar xvfvz apache-ant-1.9.3-bin.tar.gz -C /opt
+sudo ln -s /opt/apache-ant-1.9.3 /opt/ant
+sudo sh -c 'echo ANT_HOME=/opt/ant >> /etc/environment'
+sudo ln -s /opt/ant/bin/ant /usr/bin/ant

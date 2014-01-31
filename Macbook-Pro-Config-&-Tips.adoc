@@ -1,0 +1,25 @@
+== Display hidden files - Finder
+
+- http://www.mikesel.info/show-hidden-files-mac-os-x-10-7-lion/
+
+    defaults write com.apple.Finder AppleShowAllFiles YES
+
+== Sublime
+
+- Mac OS X - Command Line
+
+    sudo ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/bin/subl
+
+- Solarized
+
+https://github.com/SublimeColors/Solarized
+
+- Add Package Manager
+
+https://sublime.wbond.net/installation#st3
+
+= Maven issue between JDK 6 & 7
+
+Maven is not able to retrieve the Tools.jar file lib. Here is the workaround to be used during the build
+
+mvn clean install -Dtoolsjar=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/lib/tools.jar

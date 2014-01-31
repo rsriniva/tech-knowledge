@@ -1,3 +1,3 @@
 Welcome to the Tech Knowledge Wiki
 
-include::file[]
+include::Macbook-Pro-Config-&-Tips.adoc[]

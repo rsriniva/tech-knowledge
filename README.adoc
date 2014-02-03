@@ -9,7 +9,8 @@ include::Macbook-Pro-Config-&-Tips.adoc[]
 == Linux OS
 
 include::fedora-20.adoc[Setup Fedora 20]
-include:ubuntu-linux-mint.adoc[]
+
+include::ubuntu-linux-mint.adoc[]
 
 == Virtual
 

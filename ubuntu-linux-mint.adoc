@@ -36,7 +36,7 @@ https://www.digitalocean.com/community/articles/how-to-set-up-vsftpd-on-ubuntu-1
 
     sudo service vsftpd restart
 
-= Create dabou user
+== Create dabou user
 
     adduser dabou
     mkdir /home/dabou
@@ -45,7 +45,7 @@ https://www.digitalocean.com/community/articles/how-to-set-up-vsftpd-on-ubuntu-1
 Remark : if dabout folder should be used for FTP transfer, then owner must be changed `
 chown root:root /home/dabou`
 
-= Secure copy file
+== Secure copy file
 
 - Example
 

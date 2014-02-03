@@ -18,7 +18,7 @@ https://github.com/SublimeColors/Solarized
 
 https://sublime.wbond.net/installation#st3
 
-= Maven issue between JDK 6 & 7
+== Maven issue between JDK 6 & 7
 
 Maven is not able to retrieve the Tools.jar file lib. Here is the workaround to be used during the build
 

@@ -3,16 +3,16 @@
 http://www.if-not-true-then-false.com/2010/install-virtualbox-with-yum-on-fedora-centos-red-hat-rhel/
 http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/
 
-1. Change to root User
+. Change to root User
 
   su -
 
-2. Install Fedora or RHEL Repo Files
+. Install Fedora or RHEL Repo Files
   
   cd /etc/yum.repos.d/
   wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
 
-3. Update latest packages and check your kernel version
+. Update latest packages and check your kernel version
 
 Update packages
  
@@ -25,11 +25,11 @@ Output of following commands version numbers should match:
  
   uname -r
 
-4. Restart
+. Restart
 
   reboot
 
-4. Install following dependency packages
+. Install following dependency packages
 
   Not sure if the following command is required by Fedora 20
 
@@ -41,7 +41,7 @@ Output of following commands version numbers should match:
   ## PAE kernel users install ##
   # yum install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-PAE-devel dkms
 
-5. Install VirtualBox
+== Install VirtualBox
 
   yum install VirtualBox-4.3
 
@@ -54,7 +54,7 @@ Rebuild kernel modules with following command:
   ## OR ##
   service vboxdrv setup
 
-6. Add VirtualBox User(s) to vboxusers Group
+ . Add VirtualBox User(s) to vboxusers Group
 
 Replace user_name with your own user name or some another real user name.
   

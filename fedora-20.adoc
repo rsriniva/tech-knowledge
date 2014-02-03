@@ -1,0 +1,82 @@
+== Configure VirtualBox 4.3.6
+
+http://www.if-not-true-then-false.com/2010/install-virtualbox-with-yum-on-fedora-centos-red-hat-rhel/
+http://www.if-not-true-then-false.com/2010/install-virtualbox-guest-additions-on-fedora-centos-red-hat-rhel/
+
+1. Change to root User
+
+  su -
+
+2. Install Fedora or RHEL Repo Files
+  
+  cd /etc/yum.repos.d/
+  wget http://download.virtualbox.org/virtualbox/rpm/fedora/virtualbox.repo
+
+3. Update latest packages and check your kernel version
+
+Update packages
+ 
+  yum update
+
+Check that that you are running latest installed kernel version
+Output of following commands version numbers should match:
+
+  rpm -qa kernel |sort -V |tail -n 1
+ 
+  uname -r
+
+4. Restart
+
+  reboot
+
+4. Install following dependency packages
+
+  Not sure if the following command is required by Fedora 20
+
+  ## CentOS 6 and RHEL 6 ##
+  rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+
+  yum install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-devel dkms
+ 
+  ## PAE kernel users install ##
+  # yum install binutils gcc make patch libgomp glibc-headers glibc-devel kernel-headers kernel-PAE-devel dkms
+
+5. Install VirtualBox
+
+  yum install VirtualBox-4.3
+
+Note:
+This command create automatically vboxusers group and VirtualBox user must be member of that group.
+This command also build needed kernel modules.
+Rebuild kernel modules with following command:
+
+  /etc/init.d/vboxdrv setup
+  ## OR ##
+  service vboxdrv setup
+
+6. Add VirtualBox User(s) to vboxusers Group
+
+Replace user_name with your own user name or some another real user name.
+  
+  usermod -a -G vboxusers dabou
+
+  VirtualBox
+
+Troubleshooting
+
+If you have problems with KERN_DIR parameter or your kernel directory is not automatically detected then set KERN_DIR environment variable manually, using following method:
+## Current running kernel on Fedora ##
+KERN_DIR=/usr/src/kernels/`uname -r`
+ 
+## Current running kernel on CentOS and Red Hat (RHEL) ##
+KERN_DIR=/usr/src/kernels/`uname -r`-`uname -m`
+ 
+## Fedora example ##
+KERN_DIR=/usr/src/kernels/2.6.33.5-124.fc13.i686
+ 
+## CentOS and Red Hat (RHEL) example ##
+KERN_DIR=/usr/src/kernels/2.6.18-194.11.1.el5-x86_64
+ 
+## Export KERN_DIR ##
+export KERN_DIR
+

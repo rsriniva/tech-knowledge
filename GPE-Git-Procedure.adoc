@@ -1,0 +1,60 @@
+== Procedure to create FSW project
+
+== Create a Git Repository on RedHat Server
+
+1) Connect to file.rdu.edhat.server using your RedHat Kerberos id
+
+  ssh redHatKerberosId@file.rdu.redhat.com  
+
+where redHatKErberosIs should be your RedHat username
+
+2) Move to directory of middleware partners team  
+
+  cd /mnt/share/PartnerTraining/mw 
+
+3) Create a Git Repo under this directory
+
+  git init --shared=group --bare ‘project’
+
+where ‘project’ corresponds to the code name of the training project (camel, fsw, hyla, …)
+
+Remarks :
+
+“--shared=group" sets the file permissions up for sharing with the
+group.
+
+"--bare" sets the repository up to be in a server role, with no local
+working copy
+
+== Clone the project created at step 3) on your machine
+
+1) Open a Terminal on your Machine and move to the directory where you would like to manage your training project
+
+  Example  : cd ~/GPE/Trainings
+
+2) Clone the project
+
+  git clone redHatKerberosId@file.rdu.redhat.com:/mnt/share/PartnerTraining/mw/’project’
+
+where ‘project’ corresponds to the code name of the training project (camel, fsw, hyla, …)
+
+3) Add a README.md file to the new ‘empty’ project cloned and commit/push modification
+
+  cd fsw
+  touch README.md
+  echo ‘GPE FSW Training’ > README.md
+
+4) Commit modification and push it
+
+  git commit -m “Upload README.md file” -a
+  git push
+
+Remark : The server will prompt you and will ask you about your password
+
+
+
+
+
+
+
+

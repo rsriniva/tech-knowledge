@@ -1,0 +1,52 @@
+== Locale Issue
+
+- http://askubuntu.com/questions/205378/unsupported-locale-setting-fault-by-command-not-found
+
+    vi ~/.bash_profile
+    export LANGUAGE=fr_BE.UTF-8
+    export LANG=fr_BE.UTF-8
+    export LC_ALL=fr_BE.UTF-8
+
+    source ~/.bash_profile
+    sudo locale-gen fr_BE.UTF-8
+    sudo dpkg-reconfigure locales
+
+== FTP server & SSH
+
+sudo apt-get install vsftpd
+sudo apt-get install openssh-server
+
+== Configure anonymous write upload access
+
+http://serverfault.com/questions/247096/allow-anonymous-upload-for-vsftpd
+https://www.digitalocean.com/community/articles/how-to-set-up-vsftpd-on-ubuntu-12-04
+
+    mkdir /var/ftp/pub/upload
+    mkdir /var/ftp/pub/incoming
+    chmod 777 /var/ftp/pub/incoming
+    vi /etc/vsftpd.conf
+    anonymous_enable=NO
+    write_enable=YES
+    #anon_upload_enable=YES
+    #anon_mkdir_write_enable=YES
+    #chown_uploads=YES
+    #anon_root=/var/ftp/pub/incoming
+    local_umask=022
+    chroot_local_user=YES
+
+    sudo service vsftpd restart
+
+= Create dabou user
+
+    adduser dabou
+    mkdir /home/dabou
+    chown dabou:dabou /home/dabou
+
+Remark : if dabout folder should be used for FTP transfer, then owner must be changed `
+chown root:root /home/dabou`
+
+= Secure copy file
+
+- Example
+
+  scp CentOS-6.5.ova dabou@192.168.1.3:/home/dabou

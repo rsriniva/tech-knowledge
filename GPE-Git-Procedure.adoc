@@ -12,11 +12,19 @@ where redHatKErberosIs should be your RedHat username
 
   cd /mnt/share/PartnerTraining/mw 
 
-3) Create a Git Repo under this directory
+3) Create a training project
 
-  git init --shared=group --bare ‘project’
+  mkdir `project` 
 
 where ‘project’ corresponds to the code name of the training project (camel, fsw, hyla, …)
+
+4) Move to the training directory
+
+  cd `project`
+
+4) Create a Git Repo
+
+  git init --shared=group --bare modules.git
 
 Remarks :
 
@@ -30,11 +38,17 @@ working copy
 
 1) Open a Terminal on your Machine and move to the directory where you would like to manage your training project
 
-  Example  : cd ~/GPE/Trainings
+  Example  : cd ~/GPE/Content
+
+3) Create a project for your training
+
+  mkdir `project` 
+  cd `project`
+
 
 2) Clone the project
 
-  git clone redHatKerberosId@file.rdu.redhat.com:/mnt/share/PartnerTraining/mw/’project’
+  git clone redHatKerberosId@file.rdu.redhat.com:/mnt/share/PartnerTraining/mw/’project’/modules.git 
 
 where ‘project’ corresponds to the code name of the training project (camel, fsw, hyla, …)
 

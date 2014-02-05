@@ -1,0 +1,26 @@
+== Git
+
+- Report Commit done by author
+
+  https://coderwall.com/p/bcthew
+  
+  git log --pretty="format:%at commit %C(yellow)%H%Creset\nAuthor: %an <%ae>\nDate: %aD\n\n %s\n" --author=Charles | sort -r | cut -d" " -f2- | sed -e "s/\\\n/\\`echo -e '\n\r'`/g" | tr -d '\15\32' | less -R
+
+- Retrieve logs per author since a date
+  
+  git log --author=Charles --since='2.months'
+
+- Use drools/jbpm script
+
+  ./git-all.sh log --author=Charles --since='2014-01-01' --name-only  > chm_commits.txt
+
+- how-to-show-changed-file-name-only-with-git-log
+
+  git log --name-only 
+  or
+  git log --name-only --oneline 
+  or
+  git log --stat --oneline 
+
+
+== SVN

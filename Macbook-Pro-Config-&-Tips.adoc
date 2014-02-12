@@ -24,7 +24,7 @@ Maven is not able to retrieve the Tools.jar file lib. Here is the workaround to 
 
   mvn clean install -Dtoolsjar=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/lib/tools.jar
   
-Workaround defined here [https://github.com/hawtio/hawtio/issues/739](see last comment)
+Workaround defined here https://github.com/hawtio/hawtio/issues/739[see last comment]
 
   sudo mkdir /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/Classes
   sudo ln -sfv /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/lib/tools.jar /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/Classes/classes.jar

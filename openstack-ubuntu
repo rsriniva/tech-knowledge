@@ -28,3 +28,11 @@ Examples on using novaclient command line is in exercise.sh
 The default users are: admin and demo
 The password: supersecret
 This is your host ip: 192.168.1.100
+
+== Set credentials to run nova, glance commands
+
+  source openrc demo demo
+  
+  or 
+  
+  source openrc admin admin

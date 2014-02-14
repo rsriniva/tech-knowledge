@@ -95,6 +95,8 @@
 - Create the `cloud-user`
 
   sudo adduser cloud-user
+  sudo passwd cloud-user
+  password --> gpe-cloud
   
   su - cloud-user
   $ vncpasswd
@@ -126,4 +128,8 @@
 - Install desktop
 
   yum -y groupinstall "Desktop" "Desktop Platform" "Fonts"
+  yum install gnome-session
   
+- Setup X config for the client  
+  
+  http://www.centos.org/docs/5/html/5.2/Virtualization/sect-Virtualization-Tips_and_tricks-Configuring_a_VNC_Server.html

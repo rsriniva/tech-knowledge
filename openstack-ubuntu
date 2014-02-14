@@ -10,40 +10,39 @@
 
 === Local.conf file
 
+  #
+  # IP
+  #
+  FLOATING_RANGE=192.168.1.224/27
+  FIXED_RANGE=10.11.12.0/24
+  FIXED_NETWORK_SIZE=256
+  FLAT_INTERFACE=eth0
 
-#
-# IP
-#
-FLOATING_RANGE=192.168.1.224/27
-FIXED_RANGE=10.11.12.0/24
-FIXED_NETWORK_SIZE=256
-FLAT_INTERFACE=eth0
+  #
+  # LOG
+  #
+  DEST=/opt/stack
+  LOGFILE=$DEST/logs/stack.sh.log
+  LOGDAYS=2
+  SCREEN_LOGDIR=$DEST/logs/screen
 
-#
-# LOG
-#
-DEST=/opt/stack
-LOGFILE=$DEST/logs/stack.sh.log
-LOGDAYS=2
-SCREEN_LOGDIR=$DEST/logs/screen
+  #
+  # Password
+  #
+  ADMIN_PASSWORD=supersecret
+  MYSQL_PASSWORD=supersecret
+  RABBIT_PASSWORD=supersecret
+  SERVICE_PASSWORD=supersecret
+  SERVICE_TOKEN=supersecret
 
-#
-# Password
-#
-ADMIN_PASSWORD=supersecret
-MYSQL_PASSWORD=supersecret
-RABBIT_PASSWORD=supersecret
-SERVICE_PASSWORD=supersecret
-SERVICE_TOKEN=supersecret
+  == Result of installation
 
-== Result of installation
-
-Horizon is now available at http://192.168.1.100/
-Keystone is serving at http://192.168.1.100:5000/v2.0/
-Examples on using novaclient command line is in exercise.sh
-The default users are: admin and demo
-The password: supersecret
-This is your host ip: 192.168.1.100
+  Horizon is now available at http://192.168.1.100/
+  Keystone is serving at http://192.168.1.100:5000/v2.0/
+  Examples on using novaclient command line is in exercise.sh
+  The default users are: admin and demo
+  The password: supersecret
+  This is your host ip: 192.168.1.100
 
 == Set credentials to run nova, glance commands
 

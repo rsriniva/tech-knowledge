@@ -1,3 +1,12 @@
+== Locale issue with Fedora 8
+
+http://serverfault.com/questions/320971/centos-6-and-locale-error
+
+Add
+
+  LC_CTYPE="en_US.UTF-8"
+  to /etc/sysconfig/i18n.
+
 == Configure VirtualBox 4.3.6
 
 http://www.if-not-true-then-false.com/2010/install-virtualbox-with-yum-on-fedora-centos-red-hat-rhel/

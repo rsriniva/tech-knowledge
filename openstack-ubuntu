@@ -56,3 +56,75 @@ This is your host ip: 192.168.1.100
 == Set locale issue
 
   Add `LC_ALL="en_GB.utf8"` to file /etc/environment
+  
+== Security group
+
+  Ingress	-	TCP	22 (SSH)	0.0.0.0/0 (CIDR)	Delete Rule
+	Ingress	-	ICMP	-1 (ALL ICMP)	0.0.0.0/0 (CIDR)	Delete Rule
+	Ingress	-	TCP	8181	0.0.0.0/0 (CIDR)	Delete Rule
+	Ingress	-	TCP	5900 - 5950	0.0.0.0/0 (CIDR)	
+  
+== Install instance Fedora 20
+
+- Download Fedora Cloud image
+- Create an instance using m1.small
+- Install vncserver - http://www.oracle-base.com/articles/linux/configuring-vnc-server-on-linux.php#systemdhttp://www.oracle-base.com/articles/linux/configuring-vnc-server-on-linux.php#systemd
+  See new method
+  
+  yum install tigervnc-server
+  cp /lib/systemd/system/vncserver@.service /lib/systemd/system/vncserver@:3.service
+  
+  Edit file and replace content with this one 
+  
+  [Unit]
+  Description=Remote desktop service (VNC)
+  After=syslog.target network.target
+
+  [Service]
+  Type=forking
+  # Clean any existing files in /tmp/.X11-unix environment
+  ExecStartPre=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+  ExecStart=/sbin/runuser -l cloud-user -c "/usr/bin/vncserver %i -geometry 1280x1024"
+  PIDFile=/home/cloud-user/.vnc/%H%i.pid
+  ExecStop=/bin/sh -c '/usr/bin/vncserver -kill %i > /dev/null 2>&1 || :'
+
+  [Install]
+  WantedBy=multi-user.target
+
+  User=cloud-user
+  
+- Create the `cloud-user`
+
+  sudo adduser cloud-user
+  
+  su - cloud-user
+  $ vncpasswd
+  Password:
+  Verify:
+  $ exit
+  logout
+  
+- User defined = cloud-user/password : cloud-user
+
+- Start vncserver
+
+  systemctl enable vncserver@:3.service
+  systemctl start vncserver@:3.service
+  
+  Check staus
+  
+  systemctl status vncserver@:3.service
+
+- Connect using SSH
+
+   ssh -i ~/.ssh/cloud.key fedora@10.11.12.3
+   ssh -i ~/.ssh/cloud.key fedora@192.168.1.225
+   
+- Connect using vncviewer 
+
+  192.168.1.225:3
+  
+- Install desktop
+
+  yum -y groupinstall "Desktop" "Desktop Platform" "Fonts"
+  

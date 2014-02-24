@@ -1,0 +1,33 @@
+== Revealsjs - Tips
+
+With Reveal.js there is no way of showing same content in every page (same header/footer, by example) when exporting to pdf. For solving it I have used some JQuery magic in my fork of Reveal.js in the following way:
+
+What I want is that the following HTML be added in every page.
+
+```
+<div class="topbar">
+    <h1 class="titulo">Title text</h1><image class="logo" src="images/logo_tegnix.png">
+</div>
+```
+
+This works in the navigator if we place it before the <section> labels, but for showing it in every PDF page we must repeat the HTML fragment in every section.
+
+So I used the JQuery code to avoid repeating:
+
+if we want to get the PDF output (the URL contains ?print-pdf) insert automatically in every slide, after <section>
+if shown in a navigator, insert only once after <div class="reveal">
+
+```
+var html_barra = '<div class="topbar"><h1 class="titulo">' + titulo + 
+'</h1><image class="logo" src="images/logo_tegnix.png"></div>';
+if ( window.location.search.match( /print-pdf/gi ) ) {
+    $('section').append(html_barra);
+}
+else {
+    $('div.reveal').append(html_barra);
+}
+```
+
+Note that titulo is the variable name for title text.
+
+You can see online demo, pdf export and download my fork from here.

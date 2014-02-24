@@ -1,4 +1,4 @@
-== Revealsjs - Tips
+== Title Bar
 
 With Reveal.js there is no way of showing same content in every page (same header/footer, by example) when exporting to pdf. For solving it I have used some JQuery magic in my fork of Reveal.js in the following way:
 
@@ -15,19 +15,19 @@ This works in the navigator if we place it before the <section> labels, but for 
 So I used the JQuery code to avoid repeating:
 
 if we want to get the PDF output (the URL contains ?print-pdf) insert automatically in every slide, after <section>
-if shown in a navigator, insert only once after <div class="reveal">
+if shown in a navigator, insert only once after `<div class="reveal">`
 
 ```
-var html_barra = '<div class="topbar"><h1 class="titulo">' + titulo + 
-'</h1><image class="logo" src="images/logo_tegnix.png"></div>';
+var html_barra = '<div class="topbar"><h1 class="titulo">' + title + 
+'</h1><image class="logo" src="images/logo.png"></div>';
 if ( window.location.search.match( /print-pdf/gi ) ) {
-    $('section').append(html_barra);
+    $('section').append(html_bar);
 }
 else {
-    $('div.reveal').append(html_barra);
+    $('div.reveal').append(html_bar);
 }
 ```
 
-Note that titulo is the variable name for title text.
+Note that `title` is the variable name for title text.
 
-You can see online demo, pdf export and download my fork from here.
+You can see online http://www.ciges.net/revealjs_demo/#/[demo], https://github.com/Ciges/reveal.js/blob/master/PDF_export/presentation.pdf?raw=true[pdf] export and download my fork from https://github.com/Ciges/reveal.js[here].

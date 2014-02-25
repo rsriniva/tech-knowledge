@@ -21,6 +21,14 @@
   git log --name-only --oneline 
   or
   git log --stat --oneline 
+  
+  
+- http://stackoverflow.com/questions/3792989/how-to-view-diff-of-a-forked-github-project
+
+  git remote add mainRepo git@github.com:asciidoctor/asciidoctor-backends.git
+  git fetch mainRepo
+  git diff HEAD..mainRepo/master
+  git pull mainRepo master
 
 
 == SVN

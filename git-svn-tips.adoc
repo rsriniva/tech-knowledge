@@ -29,6 +29,24 @@
   git fetch mainRepo
   git diff HEAD..mainRepo/master
   git pull mainRepo master
+  
+- http://stackoverflow.com/questions/18486570/git-pull-aborts-itself-local-file-changes-will-be-overwritten-by-merge[Stash or commit a modification]
 
+One approach is to commit that file first then pull.
 
+  git add filename
+  git commit 
+  //enter your commit message and save 
+  git pull
+
+Another approach is stash your changes then pull. Then apply stash.
+
+  git stash
+  git pull
+  git stash apply stash@{0}
+  
+- List stash 
+
+  git stash list
+  
 == SVN

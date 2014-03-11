@@ -2,7 +2,7 @@
 
 - Report Commit done by author
 
-  https://coderwall.com/p/bcthew
+https://coderwall.com/p/bcthew
   
   git log --pretty="format:%at commit %C(yellow)%H%Creset\nAuthor: %an <%ae>\nDate: %aD\n\n %s\n" --author=Charles | sort -r | cut -d" " -f2- | sed -e "s/\\\n/\\`echo -e '\n\r'`/g" | tr -d '\15\32' | less -R
 
@@ -48,5 +48,8 @@ Another approach is stash your changes then pull. Then apply stash.
 - List stash 
 
   git stash list
+  
+- https://help.github.com/articles/syncing-a-fork[Synchronize a forked repo with its parent]
+
   
 == SVN

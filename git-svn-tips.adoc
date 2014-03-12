@@ -51,5 +51,11 @@ Another approach is stash your changes then pull. Then apply stash.
   
 - https://help.github.com/articles/syncing-a-fork[Synchronize a forked repo with its parent]
 
+- Reset a specific file
+
+http://stackoverflow.com/questions/7147270/how-can-i-make-an-hard-reset-of-a-single-file
+
+  git checkout HEAD -- fileToBeReset
+
   
 == SVN

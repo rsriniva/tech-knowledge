@@ -1,22 +1,20 @@
-:toc: left
-
 == Git
 
-- Report Commit done by author
+=== Report Commit done by author
 
 https://coderwall.com/p/bcthew
   
   git log --pretty="format:%at commit %C(yellow)%H%Creset\nAuthor: %an <%ae>\nDate: %aD\n\n %s\n" --author=Charles | sort -r | cut -d" " -f2- | sed -e "s/\\\n/\\`echo -e '\n\r'`/g" | tr -d '\15\32' | less -R
 
-- Retrieve logs per author since a date
+=== Retrieve logs per author since a date
   
   git log --author=Charles --since='2.months'
 
-- Use drools/jbpm script
+=== Use drools/jbpm script
 
   ./git-all.sh log --author=Charles --since='2014-01-01' --name-only  > chm_commits.txt
 
-- how-to-show-changed-file-name-only-with-git-log
+=== how-to-show-changed-file-name-only-with-git-log
 
   git log --name-only 
   or
@@ -25,39 +23,42 @@ https://coderwall.com/p/bcthew
   git log --stat --oneline 
   
   
-- http://stackoverflow.com/questions/3792989/how-to-view-diff-of-a-forked-github-project
+=== View diff of a forked github project
+
+http://stackoverflow.com/questions/3792989/how-to-view-diff-of-a-forked-github-project
 
   git remote add mainRepo git@github.com:asciidoctor/asciidoctor-backends.git
   git fetch mainRepo
   git diff HEAD..mainRepo/master
   git pull mainRepo master
   
-- http://stackoverflow.com/questions/18486570/git-pull-aborts-itself-local-file-changes-will-be-overwritten-by-merge[Stash or commit a modification]
+=== Pull and abort
 
-One approach is to commit that file first then pull.
+http://stackoverflow.com/questions/18486570/git-pull-aborts-itself-local-file-changes-will-be-overwritten-by-merge[Stash or commit a modification]
+
+- One approach is to commit that file first then pull.
 
   git add filename
   git commit 
   //enter your commit message and save 
   git pull
 
-Another approach is stash your changes then pull. Then apply stash.
+- Another approach is stash your changes then pull. Then apply stash.
 
   git stash
   git pull
   git stash apply stash@{0}
   
-- List stash 
+=== List stash 
 
   git stash list
   
-- https://help.github.com/articles/syncing-a-fork[Synchronize a forked repo with its parent]
+https://help.github.com/articles/syncing-a-fork[Synchronize a forked repo with its parent]
 
-- Reset a specific file
+=== Reset a specific file
 
 http://stackoverflow.com/questions/7147270/how-can-i-make-an-hard-reset-of-a-single-file
 
   git checkout HEAD -- fileToBeReset
 
-  
-== SVN
+

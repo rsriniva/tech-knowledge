@@ -1,3 +1,5 @@
+:toc: left
+
 == Git
 
 - Report Commit done by author

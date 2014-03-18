@@ -19,3 +19,7 @@ include::ubuntu-linux-mint.adoc[]
 == Virtual
 
 include::CentOS-VirtualBox.adoc[]
+
+== AngularJS
+
+http://stackoverflow.com/questions/18571001/file-upload-using-angularjs

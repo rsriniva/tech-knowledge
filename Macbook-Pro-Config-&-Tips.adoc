@@ -29,4 +29,6 @@ Workaround defined here https://github.com/hawtio/hawtio/issues/739[see last com
   sudo mkdir /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/Classes
   sudo ln -sfv /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/lib/tools.jar /Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home/Classes/classes.jar
 
+== Remove recurisvely files
 
+find . -name "._*" -print0 | xargs -0 rm -rf

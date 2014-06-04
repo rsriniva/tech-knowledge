@@ -135,3 +135,7 @@ KERN_DIR=/usr/src/kernels/2.6.18-194.11.1.el5-x86_64
 ## Export KERN_DIR ##
 export KERN_DIR
 
+== Fedy Tool
+
+  su -c "curl https://satya164.github.io/fedy/fedy-installer -o fedy-installer && chmod +x fedy-installer && ./fedy-installer"
+

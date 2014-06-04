@@ -7,34 +7,42 @@
   
   lokkit --enabled
   lokkit --update
-  iptables --list
+
+OR
+
+  firewall-cmd --add-service=ssh
   
   iptables --list
-Chain INPUT (policy ACCEPT)
-target     prot opt source               destination
-RH-Firewall-1-INPUT  all  --  anywhere             anywhere
+  Chain INPUT (policy ACCEPT)
+  target     prot opt source               destination
+  RH-Firewall-1-INPUT  all  --  anywhere             anywhere
 
-Chain FORWARD (policy ACCEPT)
-target     prot opt source               destination
-REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited
+  Chain FORWARD (policy ACCEPT)
+  target     prot opt source               destination
+  REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited
 
-Chain OUTPUT (policy ACCEPT)
-target     prot opt source               destination
+  Chain OUTPUT (policy ACCEPT)
+  target     prot opt source               destination
 
-Chain RH-Firewall-1-INPUT (1 references)
-target     prot opt source               destination
-ACCEPT     all  --  anywhere             anywhere
-ACCEPT     icmp --  anywhere             anywhere            icmp any
-ACCEPT     esp  --  anywhere             anywhere
-ACCEPT     ah   --  anywhere             anywhere
-ACCEPT     udp  --  anywhere             224.0.0.251         udp dpt:mdns
-ACCEPT     udp  --  anywhere             anywhere            udp dpt:ipp
-ACCEPT     tcp  --  anywhere             anywhere            tcp dpt:ipp
-ACCEPT     all  --  anywhere             anywhere            state RELATED,ESTABLISHED
-ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:8181
-ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ssh
-REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited
-  
+  Chain RH-Firewall-1-INPUT (1 references)
+  target     prot opt source               destination
+  ACCEPT     all  --  anywhere             anywhere
+  ACCEPT     icmp --  anywhere             anywhere            icmp any
+  ACCEPT     esp  --  anywhere             anywhere
+  ACCEPT     ah   --  anywhere             anywhere
+  ACCEPT     udp  --  anywhere             224.0.0.251         udp dpt:mdns
+  ACCEPT     udp  --  anywhere             anywhere            udp dpt:ipp
+  ACCEPT     tcp  --  anywhere             anywhere            tcp dpt:ipp
+  ACCEPT     all  --  anywhere             anywhere            state RELATED,ESTABLISHED
+  ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:8181
+  ACCEPT     tcp  --  anywhere             anywhere            state NEW tcp dpt:ssh
+  REJECT     all  --  anywhere             anywhere            reject-with icmp-host-prohibited
+
+== SSH
+
+  service sshd start
+  chkconfig sshd on
+
 
 == Locale issue with Fedora 8
 

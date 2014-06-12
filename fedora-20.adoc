@@ -165,6 +165,7 @@ http://blog.interlinked.org/tutorials/rsync_time_machine.html
 http://wiki.vps.net/vps-net-features/cloud-servers/miscellaneous/rsync-backuprestore-instructions/
 
 https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync
+http://www.tecmint.com/rsnapshot-a-file-system-backup-utility-for-linux/
 
 http://www.rsnapshot.org/howto/1.2/rsnapshot-HOWTO.en.html
 

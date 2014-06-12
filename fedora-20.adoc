@@ -139,3 +139,9 @@ export KERN_DIR
 
   su -c "curl https://satya164.github.io/fedy/fedy-installer -o fedy-installer && chmod +x fedy-installer && ./fedy-installer"
 
+== NetAtalk / Avahi
+
+http://blog.lowsnr.net/2013/09/07/accessing-a-fedora-19-fileserver-from-mac-os-x/
+http://jeandoyon.wordpress.com/2010/03/31/sharing-files-between-osx-and-fedora-12/
+http://devel.datif.be/howto/serve-files-using-afp-with-netatalk-from-fedora-linux-to-mac-osx-leopard-clients/
+

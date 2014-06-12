@@ -158,3 +158,8 @@ Additional steps :
     smbpasswd -a USERNAME
 
 - The USERNAME is used to define which user can connect using SMB client (from MacOs, ...)
+
+== Backup
+
+http://blog.interlinked.org/tutorials/rsync_time_machine.html
+http://wiki.vps.net/vps-net-features/cloud-servers/miscellaneous/rsync-backuprestore-instructions/

@@ -166,3 +166,5 @@ http://wiki.vps.net/vps-net-features/cloud-servers/miscellaneous/rsync-backupres
 
 https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync
 
+http://www.rsnapshot.org/howto/1.2/rsnapshot-HOWTO.en.html
+

@@ -150,3 +150,11 @@ http://devel.datif.be/howto/serve-files-using-afp-with-netatalk-from-fedora-linu
 As netatalk does not seem to work on Fedora 20, we will use SAMBA
 
 https://ask.fedoraproject.org/en/question/40353/how-to-enable-samba-share-for-a-specific-directory-fedora-20/
+
+Additional steps :
+
+- Added on fedora machine a username 
+
+    smbpasswd -a USERNAME
+
+- The USERNAME is used to define which user can connect using SMB client (from MacOs, ...)

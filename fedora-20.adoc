@@ -145,3 +145,8 @@ http://blog.lowsnr.net/2013/09/07/accessing-a-fedora-19-fileserver-from-mac-os-x
 http://jeandoyon.wordpress.com/2010/03/31/sharing-files-between-osx-and-fedora-12/
 http://devel.datif.be/howto/serve-files-using-afp-with-netatalk-from-fedora-linux-to-mac-osx-leopard-clients/
 
+== Samba
+
+As netatalk does not seem to work on Fedora 20, we will use SAMBA
+
+https://ask.fedoraproject.org/en/question/40353/how-to-enable-samba-share-for-a-specific-directory-fedora-20/

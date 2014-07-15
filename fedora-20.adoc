@@ -161,6 +161,11 @@ Additional steps :
 
 == Backup
 
+1) Rsync
+
+The following publications describe solutions to sync or rsync files of the disk to a 
+backup drive but don't create an image of the disk
+
 http://blog.interlinked.org/tutorials/rsync_time_machine.html
 http://wiki.vps.net/vps-net-features/cloud-servers/miscellaneous/rsync-backuprestore-instructions/
 
@@ -168,4 +173,16 @@ https://wiki.archlinux.org/index.php/Full_system_backup_with_rsync
 http://www.tecmint.com/rsnapshot-a-file-system-backup-utility-for-linux/
 
 http://www.rsnapshot.org/howto/1.2/rsnapshot-HOWTO.en.html
+
+2) Image backup
+
+With the help of clonezilla, we can using a USB key boot clonezilla (= linux os) and backup an entire drive to an external disk or restore it.
+
+The USB key can be created using the latest stable clonezilla distribution available link:here[http://clonezilla.org/downloads/download.php?branch=stable]. When the file has been downloaded, right click on the file (in Fedora) and select 'Disk image writer', then a popup window will be displayed, select the USB driver (/dev/sdb) and click on the button 'Start restoring'. When the process is done, reboot with the key
+
+Remark : The USB key should be formated with FAT format (could be done on fedora).
+
+http://www.dedoimedo.com/computers/clonezilla.html
+
+
 

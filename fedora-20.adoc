@@ -188,5 +188,18 @@ http://www.dedoimedo.com/computers/clonezilla.html
 
 http://www.binarytides.com/linux-commands-hardware-info/
 
+== Limit number of kernels and delete some
+
+http://www.if-not-true-then-false.com/2012/delete-remove-old-kernels-on-fedora-centos-red-hat-rhel/
+
+  rpm -q kernel
+  package-cleanup --oldkernels --count=2
+  
+To make this change permanent
+
+  Edit /etc/yum.conf and set installonly_limit:
+  installonly_limit=2
+
+  
 
 

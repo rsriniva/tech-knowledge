@@ -199,6 +199,39 @@ To make this change permanent
 
   Edit /etc/yum.conf and set installonly_limit:
   installonly_limit=2
+  
+== Google Chrome Remote Desktop
+
+Initial documentation used to create rpm from deb package : http://sprackle.org/2014/07/how-to-get-chrome-remote-desktop-beta-working-under-fedora/
+
+1) Alien tool must installed
+
+  sudo yum install alien
+  
+2) Download Google Chrome package
+
+  https://support.google.com/chrome/answer/1649523?hl=en
+   
+3) Generate rpm
+
+  alien -r chrome-remote-desktop_current_amd64.deb
+  
+4) Add missing packages
+
+  yum install python-psutil xorg-x11-server-Xvfb
+  
+5) Create group
+
+  groupadd chrome-remote-desktop
+  usermod -G chrome-remote-desktop dabou
+  chkconfig chrome-remote-desktop on
+  
+6) Force RPM
+
+  rpm -Uvh --force chrome-remote-desktop-35.0.1916.17-2.x86_64.rpm
+  
+   
+
 
   
 

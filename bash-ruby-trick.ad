@@ -1,3 +1,3 @@
-# Rename file recursively
+== Rename file recursively
 
 ruby -e "Dir.glob('*/*labinstructions.txt').each {|i| File.rename(i, i.gsub('.txt', '.ad'))}"

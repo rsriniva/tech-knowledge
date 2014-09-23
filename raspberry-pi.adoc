@@ -4,6 +4,8 @@
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 
+[source, text]
+----
   auto lo
   iface lo inet loopback
   # iface eth0 inet dhcp
@@ -19,9 +21,12 @@
   iface wlan0 inet manual
   wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
   # iface default inet dhcp
+----
 
-- Config.txt
+- /boot/config.txt file modified to support auto power of external disks
 
+[source, text]
+----
   # uncomment if you get no picture on HDMI for a default "safe" mode
   #hdmi_safe=1
   
@@ -65,6 +70,7 @@
   # for more options see http://elinux.org/RPi_config.txt
   safe_mode_gpio=1
   max_usb_current=1
+----
 
 == SSH
 

@@ -5,6 +5,7 @@
 - Missing software :
 
   sudo apt-get install xterm
+  sudo apt-get install tightvncserver
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 
@@ -179,16 +180,16 @@
   UsePAM yes
 ----
 
-- Remote access using X Window
+== Remote access using X Window
 
   ssh -X pi@192.168.1.85
   
-- Remote Desktop access (X Window)
+== Remote Server Access - VNC
 
-  ssh -X pi@192.168.1.85
-  xinit -- :1 &
-  echo wait
-  DISPLAY=:1 ssh -X pi@192.168.2.85 lxsession
+- http://www.ryukent.com/2013/04/setup-the-raspberry-pi-for-remote-access-with-rdp-or-vnc-and-a-static-ip/
+- http://www.jonathansblog.net/raspberry-pi/install-vnc-screen-sharing-no-monitor-headless
 
-We can switch first and second virtual terminals by pressing CTRL+ALT+F7 or CTRL+ALT+F8
-  
+== Shutdown
+
+  sudo shutdown -h now
+  sudo halt -p

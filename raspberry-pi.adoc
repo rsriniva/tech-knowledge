@@ -1,6 +1,10 @@
 = Raspberry PI B+
 
-- Installation
+- Installation : EXPLAIN WHICH OS INSTALLED - Debian
+
+- Missing software :
+
+  sudo apt-get install xterm
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 

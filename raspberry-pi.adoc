@@ -6,6 +6,8 @@
 
   sudo apt-get install xterm
   sudo apt-get install tightvncserver
+  sudo apt-get install vlc
+  sudo apt-get install wicd-curses
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 
@@ -270,3 +272,8 @@ broadcast 192.168.1.255
 
 iface default inet dhcp
 ----
+
+== Resize partition 
+
+- Followed manual as the / was mounted and couldn't resized using gparted
+- http://elinux.org/RPi_Resize_Flash_Partitions

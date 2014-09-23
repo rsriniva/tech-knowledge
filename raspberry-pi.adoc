@@ -73,7 +73,7 @@
   #arm_freq=800
   
   # for more options see http://elinux.org/RPi_config.txt
-  safe_mode_gpio=1
+  safe_mode_gpio=4
   max_usb_current=1
 ----
 

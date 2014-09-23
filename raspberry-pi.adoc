@@ -199,11 +199,12 @@
 - http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
 - Change interfaces file
 
+This config allows that the WIFI adapter gets an IP address from DHCP server and that a static address is set for the Eth0
 [source, text]
 ----
 auto lo
 iface lo inet loopback
-# iface eth0 inet dhcp
+
 auto eth0
 iface eth0 inet static
 address 192.168.1.85
@@ -215,21 +216,12 @@ broadcast 192.168.1.255
 allow-hotplug wlan0
 auto wlan0
 iface wlan0 inet manual
-
 wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
 
-iface dabou-bbox inet static
-address 192.168.1.86
-netmask 255.255.255.0
-gateway 192.168.1.1
-network 192.168.1.0
-broadcast 192.168.1.255
-
-# iface default inet dhcp
+iface default inet dhcp
 ----
 
 - Change /etc/wpa_supplicant/wpa_supplicant.conf
-
 
 [source, text]
 ----
@@ -245,4 +237,9 @@ network={
   group=CCMP TKIP
   psk="xxxxxxx"
 }
+----
+
+WARN: Remark : I have experimented different issues when trying to setup both wlan0 & eth0 adapters with a static IP Address
+
+[source, text]
 ----

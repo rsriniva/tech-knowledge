@@ -199,7 +199,8 @@
 - http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
 - Change interfaces file
 
-  /etc/network/interfaces
+[source, text]
+----
 auto lo
 iface lo inet loopback
 # iface eth0 inet dhcp
@@ -225,10 +226,14 @@ network 192.168.1.0
 broadcast 192.168.1.255
 
 # iface default inet dhcp
+----
 
 - Change /etc/wpa_supplicant/wpa_supplicant.conf
 
-  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+
+[source, text]
+----
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
 update_config=1
 
 network={
@@ -240,3 +245,4 @@ network={
   group=CCMP TKIP
   psk="xxxxxxx"
 }
+----

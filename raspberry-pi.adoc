@@ -240,6 +240,33 @@ network={
 ----
 
 WARN: Remark : I have experimented different issues when trying to setup both wlan0 & eth0 adapters with a static IP Address
+Until now, I can use each adapter with a static IP address but separately
 
 [source, text]
+----
+auto lo
+iface lo inet loopback
+
+allow-hotplug wlan0 eth0
+
+auto eth0
+iface eth0 inet static
+address 192.168.1.85
+netmask 255.255.255.0
+gateway 192.168.1.1
+network 192.168.1.0
+broadcast 192.168.1.255
+
+auto wlan0
+iface wlan0 inet manual
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface home inet static
+address 192.168.1.86
+netmask 255.255.255.0
+gateway 192.168.1.1
+network 192.168.1.0
+broadcast 192.168.1.255
+
+iface default inet dhcp
 ----

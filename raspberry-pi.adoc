@@ -179,6 +179,16 @@
   UsePAM yes
 ----
 
-- Command to be used
+- Remote access using X Window
 
   ssh -X pi@192.168.1.85
+  
+- Remote Desktop access (X Window)
+
+  ssh -X pi@192.168.1.85
+  xinit -- :1 &
+  echo wait
+  DISPLAY=:1 ssh -X pi@192.168.2.85 lxsession
+
+We can switch first and second virtual terminals by pressing CTRL+ALT+F7 or CTRL+ALT+F8
+  

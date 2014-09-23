@@ -197,3 +197,46 @@
 == WIFI Setup
 
 - http://www.savagehomeautomation.com/projects/raspberry-pi-installing-the-edimax-ew-7811un-usb-wifi-adapte.html
+- Change interfaces file
+
+  /etc/network/interfaces
+auto lo
+iface lo inet loopback
+# iface eth0 inet dhcp
+auto eth0
+iface eth0 inet static
+address 192.168.1.85
+netmask 255.255.255.0
+gateway 192.168.1.1
+network 192.168.1.0
+broadcast 192.168.1.255
+
+allow-hotplug wlan0
+auto wlan0
+iface wlan0 inet manual
+
+wpa-roam /etc/wpa_supplicant/wpa_supplicant.conf
+
+iface dabou-bbox inet static
+address 192.168.1.86
+netmask 255.255.255.0
+gateway 192.168.1.1
+network 192.168.1.0
+broadcast 192.168.1.255
+
+# iface default inet dhcp
+
+- Change /etc/wpa_supplicant/wpa_supplicant.conf
+
+  ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+  ssid="dabou-bbox2"
+  id_str="dabou-bbox"
+  proto=RSN
+  key_mgmt=WPA-PSK
+  pairwise=CCMP TKIP
+  group=CCMP TKIP
+  psk="xxxxxxx"
+}

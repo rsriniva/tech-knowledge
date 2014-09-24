@@ -6,7 +6,18 @@
 
 - Use `wicd` software as defined : http://dembtech.blogspot.be/2012/09/how-to-install-wifi-on-raspberry-pi.html
 
-- Missing software :
+== Backup & Restore
+
+- Backup 
+
+    sudo dd if=/dev/rdisk1 bs=1m | gzip > /path/to/backup.gz
+
+- Restore
+
+    gzip -dc /path/to/backup.gz | sudo dd of=/dev/rdisk1 bs=1m
+
+
+== Missing software :
 
   sudo apt-get install xterm
   sudo apt-get install tightvncserver

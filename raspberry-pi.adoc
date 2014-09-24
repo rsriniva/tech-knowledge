@@ -2,12 +2,19 @@
 
 - Installation : EXPLAIN WHICH OS INSTALLED - Debian
 
+== Wifi connection
+
+- Use `wicd` software as defined : http://dembtech.blogspot.be/2012/09/how-to-install-wifi-on-raspberry-pi.html
+
 - Missing software :
 
   sudo apt-get install xterm
   sudo apt-get install tightvncserver
   sudo apt-get install vlc
   sudo apt-get install wicd-curses
+  apt-get install iceweasel (Firefox)
+  apt-get install youtube-dl
+  apt-get install sqlite3
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 

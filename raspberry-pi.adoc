@@ -26,10 +26,27 @@
   sudo apt-get install xterm
   sudo apt-get install tightvncserver
   sudo apt-get install vlc
-  sudo apt-get install wicd-curses
+  sudo apt-get install wicd-curses (wifi)
   apt-get install iceweasel (Firefox)
-  apt-get install youtube-dl
-  apt-get install sqlite3
+  apt-get install ntfs-3g
+  apt-get install samba samba-common-bin
+  
+== NAS
+
+- Format Western Digital disk - 1T to use Format ext4 (linux)
+
+== NFS
+
+- http://www.cyberciti.biz/faq/apple-mac-osx-nfs-mount-command-tutorial/
+  sudo mount -t nfs 192.168.1.85:/media/NAS1 /Users/chmoulli/Temp/NAS`
+
+  mkfs.ext4 /dev/sda1 -L NAS1
+  
+== Good to know
+
+- http://www.raspberrypi.org/forums/viewtopic.php?t=38429
+- https://raspberry-pi-guide.readthedocs.org/en/latest/system.html
+  
 
 - Change interfaces file `/etc/network/interfaces` to use static IP address : `192.168.1.85`
 

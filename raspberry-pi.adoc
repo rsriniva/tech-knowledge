@@ -2,6 +2,10 @@
 
 - Installation : EXPLAIN WHICH OS INSTALLED - Debian
 
+= Raspberry tutorial
+
+- http://elinux.org/RPi_Tutorials
+
 == Wifi connection
 
 - Use `wicd` software as defined : http://dembtech.blogspot.be/2012/09/how-to-install-wifi-on-raspberry-pi.html
@@ -38,8 +42,10 @@
 == NFS
 
 - http://www.cyberciti.biz/faq/apple-mac-osx-nfs-mount-command-tutorial/
-  sudo mount -t nfs 192.168.1.85:/media/NAS1 /Users/chmoulli/Temp/NAS`
+- http://www.pobot.org/Partage-NFS-d-un-repertoire-sur-Raspberry-Pi.html?lang=fr
+- http://mike632t.wordpress.com/2013/09/07/installing-and-configuring-nfs/
 
+  sudo mount -t nfs 192.168.1.85:/media/NAS1 /Users/chmoulli/Temp/NAS
   mkfs.ext4 /dev/sda1 -L NAS1
   
 == Good to know

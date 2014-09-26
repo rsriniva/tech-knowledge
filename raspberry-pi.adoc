@@ -25,6 +25,10 @@
 - setup wifi : https://gist.github.com/maoueh/8260199
 - Edit command.txt to add ssh end of the boot command to start SSH at boot
 
+== XBMC
+
+- http://www.htpcbeginner.com/10-tweaks-to-improve-xbmc-performance-on-raspberry-pi/
+
 == Missing software :
 
   sudo apt-get install xterm

@@ -36,3 +36,7 @@ Workaround defined here https://github.com/hawtio/hawtio/issues/739[see last com
 == Check ports running on the machine (TCP)
 
   sudo lsof -i -n -P | grep TCP
+  
+== Disk usage (folder size)
+
+  du -hd 1 .

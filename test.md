@@ -44,10 +44,10 @@ NOTE: If the process fails (org.apache.http.NoHttpResponseException: localhost:8
      ```` 
 * Deploy outbound profile in a new container
 * From the JBoss Fuse Console, run this command to create a container and provision it with our profile
-````
+    ````
     JBossFuse:karaf@root> fabric:container-create-child --profile accenture-poc-outbound --profile accenture-poc-datasource root wayne-outbound
     JBossFuse:karaf@root> fabric:container-create-child --profile accenture-poc-inbound --profile accenture-poc-datasource root inbound
-```` 
+    ```` 
 REMARKS : 
 - Refer to [fabric8 maven plugin documentation](http://fabric8.io/gitbook/mavenPlugin.html) for any issue
 - To delete a container : fabric:container-delete inbound
@@ -174,14 +174,16 @@ on Amazon
     jdbc.password=fusepoc01
     ````
 Move to the root of the project cloned from bitbucket, deploy the profiles into Fabric
+
     ````
     mvn fabric8:deploy  -DskipTests=true -Dfabric8.jolokiaUrl=http://ip-10.0.0.36:8181/jolokia
     ````
 Return to the JBoss Fuse Console to create the 2 containers using `./client` script under bin directory of JBoss Fuse
+
     ````
     fabric:container-create-ssh --host 10.0.1.216 --private-key /home/ec2-user/fuseservers.pem --user ec2-user inbound
     fabric:container-create-ssh --host 10.0.1.24 --private-key /home/ec2-user/fuseservers.pem --user ec2-user outbound
-     ````  
+    ````  
 Remark:
    The deployment of the `inbound` profile into the container `inbound` does not succeed the first time. Stop and restart the container, that should work. Apparently CXF is not able to find the HTTP Transport service.
     

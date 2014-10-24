@@ -4,16 +4,18 @@
 
 * Deploy the features XML repository file
 
+    ````
     features:addurl mvn:com.redhat.gpe.poc.accenture.olympus/features/1.0.0/xml/features
+    ````
 
 * Install the outbound module / features
-
+    ````
     features:install outbound
-
+    ````
 * Install the inbound module / features
-
+    ````
     features:install inbound
-
+    ````
 * Open the FMC console and verify that the routes are well deployed
 
 See doc/olympus-routes.png
@@ -21,13 +23,13 @@ See doc/olympus-routes.png
 ## 2. Local JBoss Fuse Fabric Installation
 
 * Create the Fabric Ensemble Server
-
+    ````
     fabric:create --zookeeper-password admin--wait-for-provisioning
-  
+      ````
 * Run the following command under the project module (= root of the project) in your terminal
-
+    ````
     mvn fabric8:deploy
-  
+     ```` 
 NOTE: If the process fails (org.apache.http.NoHttpResponseException: localhost:8181 failed to respond), check the host name of the jolokia registered in JMX abd use this url with the option
        mvn fabric8:deploy -DskipTests=true -Dfabric8.jolokiaUrl=http://192.168.1.80:8181/jolokia
        

@@ -133,6 +133,7 @@
   ssh pi@192.168.1.85
   password = raspberry
   sudo su -
+  password = raspberrypi
   
 == Enable X Session over SSH
 

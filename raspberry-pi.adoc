@@ -241,6 +241,10 @@
 - http://www.ryukent.com/2013/04/setup-the-raspberry-pi-for-remote-access-with-rdp-or-vnc-and-a-static-ip/
 - http://www.jonathansblog.net/raspberry-pi/install-vnc-screen-sharing-no-monitor-headless
 
+password : dabouXXX
+
+- To reset password : http://itfixed.blogspot.com.es/2009/05/how-to-change-vnc-server-password-on.html
+
 == Shutdown
 
   sudo shutdown -h now

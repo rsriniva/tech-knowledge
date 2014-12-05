@@ -245,6 +245,16 @@ password : dabouXXX
 
 - To reset password : http://itfixed.blogspot.com.es/2009/05/how-to-change-vnc-server-password-on.html
 
+== SSH Openelec
+
+- http://wiki.openelec.tv/index.php/Installing_OpenELEC_on_Raspberry_Pi
+- ssh root@192.168.1.6
+- Login/password : root/openelec
+
+* change IP address
+- Log on with SSH & edit the settings.xml file (/storage/.xbmc/userdata/guisettings.xml)
+
+
 == Shutdown
 
   sudo shutdown -h now
